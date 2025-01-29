@@ -1,0 +1,16 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div>
+            <a class="text-white navbar-brand" href="https://www.google.com"> Project </a>
+        </div>
+        <ul class="navbar-nav">
+            <li > <a class=" nav-link text-white" routerLink="welcome/nike" *ngIf="hardCodedAutheticatedService.isuserLoggedIn()">Home</a></li>
+            <li > <a class=" nav-link text-white" routerLink="todo" *ngIf="hardCodedAutheticatedService.isuserLoggedIn()">Todos</a></li>
+            
+        </ul>
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+            <li><a routerLink="/login" class="nav-link text-white" *ngIf="!hardCodedAutheticatedService.isuserLoggedIn()">Login</a></li>
+            <li><a routerLink="/logout" class="nav-link text-white" *ngIf="hardCodedAutheticatedService.isuserLoggedIn()">logout</a></li>
+        </ul>
+    </nav>
+</header>
