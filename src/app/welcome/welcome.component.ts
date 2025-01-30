@@ -1,20 +1,56 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { ListTodosComponentComponent } from '../list-todos-component/list-todos-component.component';
-
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { WelcomeService } from '../service/data/welcome.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-welcome',
-  imports: [ListTodosComponentComponent,RouterLink],
   templateUrl: './welcome.component.html',
-  styleUrl: './welcome.component.css'
+  styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent {
-  name=''
-constructor(private route:ActivatedRoute){}
+export class WelcomeComponent implements OnInit {
+  name = '';
+  welcomeMsg = '';
 
-ngOnInit(): void {
-  this.name = this.route.snapshot.params['name']; // Assign name here
+  constructor(private route: ActivatedRoute, private welcomeService: WelcomeService) {}
+
+  ngOnInit(): void {
+    this.name = this.route.snapshot.params['name'];
+  }
+
+
+//this is async call
+  // getwelcomemsg(){
+   
+
+  //   this.welcomeService.getwelcomemsg().subscribe(
+  //     (data)=>{ console.log(data);
+  //       console.log("ds");
+  //     }
+  //   );
+  //   console.log("last line");
+  // }
+  // hadlesuccessresponse(response:string){
+  //   console.log(response);
+  // }
+
+getwelcomemsg(){
+
+this.welcomeService.getwelcomemsg().subscribe(
+  (data)=>{ console.log(data);
+    this.welcomeMsg=data;},
+  (error)=>{console.log(error);
+    this.welcomeMsg="something went wrong";
+  }
+);
+
+
+
 }
 
+
+
+
 }
+
+ 
