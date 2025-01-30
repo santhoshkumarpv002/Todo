@@ -8,6 +8,6 @@ export class WelcomeService {
   constructor(private http: HttpClient) {}
 
   getwelcomemsg() {
-    return this.http.get("http://3.238.252.112:8080/api/welcome", { responseType: 'text' });
+    return this.http.get("http://44.203.211.59:8080/api/welcome", { responseType: 'text' });
   }
 }
