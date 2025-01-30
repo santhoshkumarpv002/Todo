@@ -8,6 +8,6 @@ export class WelcomeService {
   constructor(private http: HttpClient) {}
 
   getwelcomemsg() {
-    return this.http.get("http://44.203.211.59:8080/api/welcome", { responseType: 'text' });
+    return this.http.get("https://53ce-3-233-219-228.ngrok-free.app/api/welcome", { responseType: 'text' });
   }
 }
